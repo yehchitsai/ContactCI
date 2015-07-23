@@ -24,24 +24,20 @@ class Contact extends CI_Controller {
 	}
     function cors_headers() //Cross-origin resource sharing
     {
-	header('Access-Control-Allow-Origin: *');
-//	header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
+		header('Access-Control-Allow-Origin: *');
+	//	header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
         header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
         header('Access-Control-Max-Age: 1000');
         header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
     }
 	
-	public function test2()
+	public function detail()
 	{		
 		$this->cors_headers();
-		if(isset($_POST['stu'])){
-/*
-			$link = mysql_connect('localhost','root','30678');
-			mysql_select_db('database');
-			mysql_query("SET NAMES 'utf8'");
-*/				
-			$json = array("student"=>array(),
-						"url"=>"",
+		if(isset($_POST['stu_id'])){
+			
+			$json = array("studata"=>array(),
+						"photo"=>"",
 						"facebook"=>array(
 							array(
 								"uid"=>array(),
@@ -51,18 +47,15 @@ class Contact extends CI_Controller {
 						)					
 			);
 			
-			$query = 'SELECT * FROM `notfb` WHERE `stu_no` = "'.$_POST["stu"].'"';
+			$query = 'SELECT `stu_id`, `stu_name`, `email` FROM `studata` WHERE `stu_id` = "'.$_POST["stu_id"].'"';
 			$result = $this->db->query($query);
-//			$result = mysql_query($query);		
-			$json["student"]=array_values($result->unbuffered_row('array'));
-//			$json["student"]=mysql_fetch_row($result);		
+	
+			$json["studata"]=array_values($result->unbuffered_row('array'));	
 							
-			$query = 'SELECT `UID`,`fb_name` FROM `uid` WHERE `stu_no` = "'.$_POST["stu"].'"';
+			$query = 'SELECT `uid`,`fb_name` FROM `link` WHERE `stu_id` = "'.$_POST["stu_id"].'"';
 			$result = $this->db->query($query);
-//			$result = mysql_query($query);
 			$i=0;
 			while($row=$result->unbuffered_row('array')){
-//			while($row=mysql_fetch_row($result)){
 				$json["facebook"][$i]["uid"] = array_values($row); //convert associative array to index array --$array = array_values($array);
 				$i++;
 			}		
@@ -70,102 +63,67 @@ class Contact extends CI_Controller {
 							
 				$query = 'SELECT `current_location`,`hometown_location` FROM `location` WHERE `uid` = "'.$json["facebook"][$j]["uid"][0].'"';
 				$result = $this->db->query($query);
-//				$result = mysql_query($query);
 				while($row=$result->unbuffered_row('array')){
-//				while($row=mysql_fetch_row($result)){
 					$json["facebook"][$j]["location"]= array_values($row); 
 				}
 				
 				$query = 'SELECT * FROM `work` WHERE `uid` = "'.$json["facebook"][$j]["uid"][0].'"';
 				$result = $this->db->query($query);
-//				$result = mysql_query($query);
 				while($row=$result->unbuffered_row('array')){
-//				while($row=mysql_fetch_row($result)){
 					$json["facebook"][$j]["work"][]= array_values($row);
 				}
 				
-				$query = 'SELECT `photo` FROM `name_uid` WHERE `uid` = "'.$json["facebook"][$j]["uid"][0].'"';
+				$query = 'SELECT `photo` FROM `fb` WHERE `uid` = "'.$json["facebook"][$j]["uid"][0].'"';
 				$result = $this->db->query($query);
-//				$result = mysql_query($query);
-				$json["url"] = array_values($result->unbuffered_row('array'));
-//				$json["url"] = mysql_fetch_row($result);
+				$json["photo"] = array_values($result->unbuffered_row('array'));
 			}
-			/*
-			$query = 'SELECT `work`.* FROM `100a`,`uid`,`work` WHERE `stuid` = "'.$_POST["stu"].'" && `uid`.`UID`=`work`.`uid` && `uid`.`stu_no` = `100a`.`stuid`';
-			$result = mysql_query($query);
-			while($row=mysql_fetch_row($result)){
-				$json["facebook"][]=$row;
-			}
-			*/
 			
 			echo json_encode($json,JSON_UNESCAPED_UNICODE);
 		}
 	}
-	public function test()
+	public function namelist()
 	{	
 		$this->cors_headers();
 		if (isset($_POST["key"])){
 			
-//				$link_ID=mysql_connect("localhost","root","30678");
-				$key=$_POST ["key"];
 				$type=$_POST ["type"];
-//				mysql_select_db("database");
+				$key=$_POST ["key"];
 				
 				if($type=="姓名"){
-					$str="SELECT * FROM `100a` WHERE `name` LIKE '%$key%';";
+					$str="SELECT * FROM `studata` WHERE `stu_name` LIKE '%$key%';";
 				}
 				else if($type=="學號"){
-					$str="SELECT * FROM `100a` WHERE `Stuid` LIKE '%$key%';";
-				}
-				else if($type=="專題老師"){
-					$str="SELECT * FROM `project` WHERE `teacher` LIKE '%$key%';";
+					$str="SELECT * FROM `studata` WHERE `stu_id` LIKE '%$key%';";
 				}
 				else if($type=="工作經歷"){
 					$str="SELECT * FROM `work` WHERE `employer` LIKE '%$key%';";
 				}		
 
-				$result = $this->db->query($str);
-//				mysql_query("SET NAMES UTF8");
-//				$result=mysql_query($str,$link_ID);
-				//print_r($result);
-				
+				$result = $this->db->query($str);				
 				$record=array();
 				$uid=array();
 				
 				if($type=="姓名"||$type=="學號"){
-//					while($row=mysql_fetch_row($result)){
-					while($row=$result->unbuffered_row('array')){
-						//echo json_encode(var_dump($row),JSON_UNESCAPED_UNICODE);
-						$row = array_values($row);
-						array_push($record,array($row[1],$row[0]));
-					}
-				}
-				else if($type=="專題老師"){
-//					while($row=mysql_fetch_row($result)){
 					while($row=$result->unbuffered_row('array')){
 						$row = array_values($row);
-						array_push($record,array($row[5],$row[6]));
+						array_push($record,array($row[0],$row[1]));
 					}
 				}
 				else if($type=="工作經歷"){
-//					while($row=mysql_fetch_row($result)){
 					while($row=$result->unbuffered_row('array')){
 						$row = array_values($row);
 						array_push($uid,$row[0]);
 					}
 					foreach($uid as $key){
-						$str = "SELECT * FROM `uid` WHERE `UID` = '$key';";
-//						$result=mysql_query($str,$link_ID);
+						$str = "SELECT * FROM `link` WHERE `uid` = '$key';";
 						$result=$this->db->query($str);
-//						while($row=mysql_fetch_row($result)){
 						while($row=$result->unbuffered_row('array')){
 							$row = array_values($row);
-							array_push($record,array($row[1],$row[0]));
+							array_push($record,array($row[0],$row[1]));
 						}
 					}
 				}
 				
-//				mysql_close($link_ID);
 				echo json_encode($record,JSON_UNESCAPED_UNICODE);
 		}
 	}

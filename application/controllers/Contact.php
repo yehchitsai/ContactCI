@@ -22,7 +22,7 @@ class Contact extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->cors_headers();
+//		$this->cors_headers();
 		$this->load->model('ContactModel');	
 	}
 	
@@ -60,6 +60,18 @@ class Contact extends CI_Controller {
 				
 			$record=$this->ContactModel->get_namelist($type,$key);			
 			echo json_encode($record,JSON_UNESCAPED_UNICODE);
+		}
+	}
+	
+	public function permit()
+	{
+	$this->cors_headers();
+//		if (isset($_POST["id"])){
+		if ($this->input->post_get('id', TRUE)!=NULL){
+			
+			$id=$this->input->post_get('id', TRUE);
+			$result=$this->ContactModel->get_permit($id);			
+			echo $result;
 		}
 	}
 }

@@ -124,4 +124,9 @@ class ContactModel extends CI_Model {
 			return false;
 		}
 	}
+	
+	public function update_info($AcessToken)
+	{
+		return $AcessToken;
+	}
 }

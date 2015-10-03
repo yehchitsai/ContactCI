@@ -65,12 +65,23 @@ class Contact extends CI_Controller {
 	
 	public function permit()
 	{
-	$this->cors_headers();
+		$this->cors_headers();
 //		if (isset($_POST["id"])){
 		if ($this->input->post_get('id', TRUE)!=NULL){
 			
 			$id=$this->input->post_get('id', TRUE);
 			$result=$this->ContactModel->get_permit($id);			
+			echo $result;
+		}
+	}
+	
+	public function update()
+	{
+		$this->cors_headers();
+		if ($this->input->post_get('AccessToken', TRUE)!=NULL){
+			
+			$AccessToken=$this->input->post_get('AccessToken', TRUE);
+			$result=$this->ContactModel->update_info($AccessToken);			
 			echo $result;
 		}
 	}

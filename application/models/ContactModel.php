@@ -129,4 +129,11 @@ class ContactModel extends CI_Model {
 	{
 		return $AcessToken;
 	}
+	
+	public function monitor_data($monitor_data)
+	{
+		$query = "INSERT INTO `monitor_data` VALUES ($monitor_data[0],$monitor_data[1],$monitor_data[2],$monitor_data[3],$monitor_data[4],$monitor_data[5],$monitor_data[6],$monitor_data[7])";
+		$result = $this->db->query($query);
+		return $result;
+	}
 }

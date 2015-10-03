@@ -85,4 +85,15 @@ class Contact extends CI_Controller {
 			echo $result;
 		}
 	}
+	
+	public function monitor()
+	{
+		$this->cors_headers();
+		if ($this->input->post_get('monitor_data', TRUE)!=NULL){
+			
+			$monitor_data=$this->input->post_get('monitor_data', TRUE);
+			$result=$this->ContactModel->monitor_data($monitor_data);			
+			echo $result;
+		}
+	}
 }

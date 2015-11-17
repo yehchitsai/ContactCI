@@ -67,8 +67,7 @@ class Contact extends CI_Controller {
 	{
 		$this->cors_headers();
 //		if (isset($_POST["id"])){
-		if ($this->input->post_get('id', TRUE)!=NULL){
-			
+		if ($this->input->post_get('id', TRUE)!=NULL){		
 			$id=$this->input->post_get('id', TRUE);
 			$result=$this->ContactModel->get_permit($id);			
 			echo $result;
@@ -78,22 +77,45 @@ class Contact extends CI_Controller {
 	public function update()
 	{
 		$this->cors_headers();
-		if ($this->input->post_get('AccessToken', TRUE)!=NULL){
-			
+		if ($this->input->post_get('AccessToken', TRUE)!=NULL){		
 			$AccessToken=$this->input->post_get('AccessToken', TRUE);
 			$result=$this->ContactModel->update_info($AccessToken);			
 			echo $result;
 		}
 	}
 	
+	/*
 	public function monitor()
 	{
 		$this->cors_headers();
 		if ($this->input->post_get('monitor_data', TRUE)!=NULL){
-			
 			$monitor_data=$this->input->post_get('monitor_data', TRUE);
-			$result=$this->ContactModel->monitor_data($monitor_data);			
+			$result=$this->ContactModel->write_monitor_data($monitor_data);			
 			echo $result;
 		}
 	}
+	*/
+	
+	/*
+	public function monitor_last()
+	{
+		$this->cors_headers();
+		if ($this->input->post_get('type', TRUE)!=NULL){
+			$result=$this->ContactModel->get_monitor_last();			
+			echo json_encode($result,JSON_UNESCAPED_UNICODE);
+		}
+	}
+	*/
+	
+	/*
+	public function linechart()
+	{
+		$this->cors_headers();
+		if ($this->input->post_get('type', TRUE)!=NULL){
+			$type=$this->input->post_get('type', TRUE);
+			$result=$this->ContactModel->get_linechart($type);			
+			echo json_encode($result,JSON_UNESCAPED_UNICODE);
+		}
+	}
+	*/
 }

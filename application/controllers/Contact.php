@@ -23,7 +23,8 @@ class Contact extends CI_Controller {
 	{
 		parent::__construct();
 //		$this->cors_headers();
-		$this->load->model('ContactModel');	
+		$this->load->model('ContactModel');
+		$this->load->model('LoginModel');			
 	}
 	
 	public function index()
@@ -69,7 +70,7 @@ class Contact extends CI_Controller {
 //		if (isset($_POST["id"])){
 		if ($this->input->post_get('id', TRUE)!=NULL){		
 			$id=$this->input->post_get('id', TRUE);
-			$result=$this->ContactModel->get_permit($id);			
+			$result=$this->LoginModel->get_permit($id);			
 			echo $result;
 		}
 	}

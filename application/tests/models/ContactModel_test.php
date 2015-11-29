@@ -5,8 +5,8 @@ class ContactModel_test extends TestCase
 	public function setUp()
 	{
 		$this->resetInstance();
-		$this->CI->load->model('ContactModel');
-		$this->obj = $this->CI->ContactModel;
+		$this->CI->load->model('LoginModel');
+		$this->obj = $this->CI->LoginModel;
 	}
 	
 	public function test_get_permit()

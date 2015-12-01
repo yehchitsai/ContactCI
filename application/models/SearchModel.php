@@ -1,5 +1,5 @@
 <?php
-class ContactModel extends CI_Model {
+class SearchModel extends CI_Model {
 	
 	function __construct()
 	{

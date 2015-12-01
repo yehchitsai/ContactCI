@@ -25,7 +25,7 @@ class Contact extends CI_Controller {
 //		$this->cors_headers();		
 		$this->load->model('LoginModel');	
 		$this->load->model('UpdateModel');
-		$this->load->model('ContactModel');	
+		$this->load->model('SearchModel');	
 		$this->load->model('MonitorModel');		
 	}
 	
@@ -47,7 +47,7 @@ class Contact extends CI_Controller {
 		$this->cors_headers();
 		if(isset($_POST['stu_id'])){
 			$stu_id=$_POST ['stu_id'];
-			$json=$this->ContactModel->get_detail($stu_id);
+			$json=$this->SearchModel->get_detail($stu_id);
 			echo json_encode($json,JSON_UNESCAPED_UNICODE);
 		}
 	}
@@ -61,7 +61,7 @@ class Contact extends CI_Controller {
 			$key=$_POST ["key"];
 				
 				
-			$record=$this->ContactModel->get_namelist($type,$key);			
+			$record=$this->SearchModel->get_namelist($type,$key);			
 			echo json_encode($record,JSON_UNESCAPED_UNICODE);
 		}
 	}

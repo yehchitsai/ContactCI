@@ -25,7 +25,8 @@ class Contact extends CI_Controller {
 //		$this->cors_headers();		
 		$this->load->model('LoginModel');	
 		$this->load->model('UpdateModel');
-		$this->load->model('ContactModel');		
+		$this->load->model('ContactModel');	
+		$this->load->model('MonitorModel');		
 	}
 	
 	public function index()
@@ -92,7 +93,7 @@ class Contact extends CI_Controller {
 		$this->cors_headers();
 		if ($this->input->post_get('monitor_data', TRUE)!=NULL){
 			$monitor_data=$this->input->post_get('monitor_data', TRUE);
-			$result=$this->ContactModel->write_monitor_data($monitor_data);			
+			$result=$this->MonitorModel->write_monitor_data($monitor_data);			
 			echo $result;
 		}
 	}
@@ -103,7 +104,7 @@ class Contact extends CI_Controller {
 	{
 		$this->cors_headers();
 		if ($this->input->post_get('type', TRUE)!=NULL){
-			$result=$this->ContactModel->get_monitor_last();			
+			$result=$this->MonitorModel->get_monitor_last();			
 			echo json_encode($result,JSON_UNESCAPED_UNICODE);
 		}
 	}
@@ -115,7 +116,7 @@ class Contact extends CI_Controller {
 		$this->cors_headers();
 		if ($this->input->post_get('type', TRUE)!=NULL){
 			$type=$this->input->post_get('type', TRUE);
-			$result=$this->ContactModel->get_linechart($type);			
+			$result=$this->MonitorModel->get_linechart($type);			
 			echo json_encode($result,JSON_UNESCAPED_UNICODE);
 		}
 	}

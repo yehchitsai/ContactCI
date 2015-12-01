@@ -45,31 +45,31 @@ class Contact extends CI_Controller {
 	public function detail()
 	{		
 		$this->cors_headers();
-		if(isset($_POST['stu_id'])){
-			$stu_id=$_POST ['stu_id'];
-			$json=$this->SearchModel->get_detail($stu_id);
-			echo json_encode($json,JSON_UNESCAPED_UNICODE);
+		if ($this->input->post_get('stu_id', TRUE)!=NULL){
+		
+			$stu_id=$this->input->post_get('stu_id', TRUE);
+			
+			$result=$this->SearchModel->get_detail($stu_id);
+			echo json_encode($result,JSON_UNESCAPED_UNICODE);
 		}
 	}
 	
 	public function namelist()
 	{	
 		$this->cors_headers();
-		if (isset($_POST["key"])){
+		if ($this->input->post_get('key', TRUE)!=NULL){
+		
+			$type=$this->input->post_get('type', TRUE);
+			$key=$this->input->post_get('key', TRUE);
 			
-			$type=$_POST ["type"];
-			$key=$_POST ["key"];
-				
-				
-			$record=$this->SearchModel->get_namelist($type,$key);			
-			echo json_encode($record,JSON_UNESCAPED_UNICODE);
+			$result=$this->SearchModel->get_namelist($type,$key);
+			echo json_encode($result,JSON_UNESCAPED_UNICODE);
 		}
 	}
 	
 	public function permit()
 	{
 		$this->cors_headers();
-//		if (isset($_POST["id"])){
 		if ($this->input->post_get('id', TRUE)!=NULL){		
 			$id=$this->input->post_get('id', TRUE);
 			$result=$this->LoginModel->get_permit($id);			

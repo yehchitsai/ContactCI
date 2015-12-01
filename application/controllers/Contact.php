@@ -22,9 +22,10 @@ class Contact extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-//		$this->cors_headers();
-		$this->load->model('ContactModel');
-		$this->load->model('LoginModel');			
+//		$this->cors_headers();		
+		$this->load->model('LoginModel');	
+		$this->load->model('UpdateModel');
+		$this->load->model('ContactModel');		
 	}
 	
 	public function index()
@@ -80,7 +81,7 @@ class Contact extends CI_Controller {
 		$this->cors_headers();
 		if ($this->input->post_get('AccessToken', TRUE)!=NULL){		
 			$AccessToken=$this->input->post_get('AccessToken', TRUE);
-			$result=$this->ContactModel->update_info($AccessToken);			
+			$result=$this->UpdateModel->update_info($AccessToken);			
 			echo $result;
 		}
 	}

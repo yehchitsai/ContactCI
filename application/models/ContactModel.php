@@ -110,26 +110,6 @@ class ContactModel extends CI_Model {
 		return $json;
 	}
 	
-	public function get_permit($id)
-	{
-		$query = "SELECT `uid` FROM `fb` WHERE `uid` = '$id';";
-		$result = $this->db->query($query);
-		$row=$result->unbuffered_row('array');
-		if($row > 0)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	
-	public function update_info($AcessToken)
-	{
-		return $AcessToken;
-	}
-	
 	/*
 	public function write_monitor_data($monitor_data)
 	{

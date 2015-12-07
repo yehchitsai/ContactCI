@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1449500672">
-  <project timestamp="1449500672">
+<coverage generated="1449503933">
+  <project timestamp="1449503933">
     <file name="C:\wamp\www\ContactCI\application/controllers/Contact.php">
       <class name="Contact" namespace="global">
         <metrics methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="49" coveredstatements="0" elements="56" coveredelements="0"/>
@@ -265,63 +265,57 @@
     </file>
     <file name="C:\wamp\www\ContactCI\application/models/SearchModel.php">
       <class name="SearchModel" namespace="global">
-        <metrics methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="93" coveredstatements="0" elements="96" coveredelements="0"/>
+        <metrics methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="86" coveredstatements="44" elements="89" coveredelements="46"/>
       </class>
-      <line num="4" type="method" name="__construct" crap="2" count="0"/>
-      <line num="5" type="stmt" count="0"/>
-      <line num="6" type="stmt" count="0"/>
-      <line num="7" type="stmt" count="0"/>
-      <line num="9" type="method" name="get_namelist" crap="182" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="11" type="stmt" count="0"/>
-      <line num="12" type="stmt" count="0"/>
-      <line num="13" type="stmt" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="16" type="stmt" count="0"/>
-      <line num="17" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="21" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <line num="26" type="stmt" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <line num="28" type="stmt" count="0"/>
-      <line num="29" type="stmt" count="0"/>
-      <line num="30" type="stmt" count="0"/>
-      <line num="31" type="stmt" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <line num="35" type="stmt" count="0"/>
-      <line num="36" type="stmt" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <line num="38" type="stmt" count="0"/>
-      <line num="39" type="stmt" count="0"/>
-      <line num="40" type="stmt" count="0"/>
-      <line num="41" type="stmt" count="0"/>
-      <line num="42" type="stmt" count="0"/>
-      <line num="43" type="stmt" count="0"/>
-      <line num="44" type="stmt" count="0"/>
-      <line num="45" type="stmt" count="0"/>
-      <line num="46" type="stmt" count="0"/>
-      <line num="47" type="stmt" count="0"/>
-      <line num="48" type="stmt" count="0"/>
-      <line num="49" type="stmt" count="0"/>
-      <line num="50" type="stmt" count="0"/>
-      <line num="51" type="stmt" count="0"/>
-      <line num="52" type="stmt" count="0"/>
-      <line num="53" type="stmt" count="0"/>
-      <line num="55" type="stmt" count="0"/>
-      <line num="56" type="stmt" count="0"/>
+      <line num="4" type="method" name="__construct" crap="1" count="1"/>
+      <line num="6" type="stmt" count="1"/>
+      <line num="7" type="stmt" count="1"/>
+      <line num="9" type="method" name="get_namelist" crap="13" count="1"/>
+      <line num="11" type="stmt" count="1"/>
+      <line num="12" type="stmt" count="1"/>
+      <line num="13" type="stmt" count="1"/>
+      <line num="14" type="stmt" count="1"/>
+      <line num="15" type="stmt" count="1"/>
+      <line num="16" type="stmt" count="1"/>
+      <line num="17" type="stmt" count="1"/>
+      <line num="18" type="stmt" count="1"/>
+      <line num="19" type="stmt" count="1"/>
+      <line num="21" type="stmt" count="1"/>
+      <line num="22" type="stmt" count="1"/>
+      <line num="23" type="stmt" count="1"/>
+      <line num="24" type="stmt" count="1"/>
+      <line num="26" type="stmt" count="1"/>
+      <line num="27" type="stmt" count="1"/>
+      <line num="28" type="stmt" count="1"/>
+      <line num="29" type="stmt" count="1"/>
+      <line num="30" type="stmt" count="1"/>
+      <line num="31" type="stmt" count="1"/>
+      <line num="32" type="stmt" count="1"/>
+      <line num="33" type="stmt" count="1"/>
+      <line num="34" type="stmt" count="1"/>
+      <line num="35" type="stmt" count="1"/>
+      <line num="36" type="stmt" count="1"/>
+      <line num="37" type="stmt" count="1"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="39" type="stmt" count="1"/>
+      <line num="40" type="stmt" count="1"/>
+      <line num="41" type="stmt" count="1"/>
+      <line num="42" type="stmt" count="1"/>
+      <line num="43" type="stmt" count="1"/>
+      <line num="44" type="stmt" count="1"/>
+      <line num="45" type="stmt" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="47" type="stmt" count="1"/>
+      <line num="48" type="stmt" count="1"/>
+      <line num="49" type="stmt" count="1"/>
+      <line num="50" type="stmt" count="1"/>
+      <line num="51" type="stmt" count="1"/>
+      <line num="52" type="stmt" count="1"/>
+      <line num="53" type="stmt" count="1"/>
+      <line num="55" type="stmt" count="1"/>
       <line num="58" type="method" name="get_detail" crap="56" count="0"/>
-      <line num="59" type="stmt" count="0"/>
       <line num="60" type="stmt" count="0"/>
       <line num="61" type="stmt" count="0"/>
-      <line num="62" type="stmt" count="0"/>
-      <line num="63" type="stmt" count="0"/>
       <line num="64" type="stmt" count="0"/>
       <line num="65" type="stmt" count="0"/>
       <line num="66" type="stmt" count="0"/>
@@ -362,8 +356,7 @@
       <line num="107" type="stmt" count="0"/>
       <line num="108" type="stmt" count="0"/>
       <line num="110" type="stmt" count="0"/>
-      <line num="111" type="stmt" count="0"/>
-      <metrics loc="111" ncloc="109" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="93" coveredstatements="0" elements="96" coveredelements="0"/>
+      <metrics loc="111" ncloc="109" classes="1" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="86" coveredstatements="44" elements="89" coveredelements="46"/>
     </file>
     <file name="C:\wamp\www\ContactCI\application/models/UpdateModel.php">
       <class name="UpdateModel" namespace="global">
@@ -679,6 +672,6 @@
       <line num="89" type="stmt" count="0"/>
       <metrics loc="88" ncloc="88" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="69" coveredstatements="0" elements="69" coveredelements="0"/>
     </file>
-    <metrics files="18" loc="997" ncloc="854" classes="5" methods="15" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="583" coveredstatements="9" elements="598" coveredelements="11"/>
+    <metrics files="18" loc="997" ncloc="854" classes="5" methods="15" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="576" coveredstatements="53" elements="591" coveredelements="57"/>
   </project>
 </coverage>

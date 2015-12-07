@@ -1,6 +1,6 @@
 <?php
 
-class ContactModel_test extends TestCase
+class LoginModel_test extends TestCase
 {
 	public function setUp()
 	{

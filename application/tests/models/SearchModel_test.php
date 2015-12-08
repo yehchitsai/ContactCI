@@ -32,6 +32,13 @@ class SearchModel_test extends TestCase
 		$this->assertInternalType('array',$actual);
 		$this->assertContains($expected, $actual);
 	}
+	
+	public function test_get_detail()
+	{
+		$stu_id = 'A0128418';
+		$actual = $this->obj->get_detail($stu_id);
+		$this->assertInternalType('array',$actual);
+	}
 }
 
 ?>

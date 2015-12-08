@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="CodeIgniter Application Test Suite" tests="2" assertions="8" failures="0" errors="0" time="0.140806">
-    <testsuite name="LoginModel_test" file="C:\wamp\www\ContactCI\application\tests\models\LoginModel_test.php" tests="1" assertions="2" failures="0" errors="0" time="0.046800">
-      <testcase name="test_get_permit" class="LoginModel_test" file="C:\wamp\www\ContactCI\application\tests\models\LoginModel_test.php" line="12" assertions="2" time="0.046800"/>
+  <testsuite name="CodeIgniter Application Test Suite" tests="3" assertions="9" failures="0" errors="0" time="0.159009">
+    <testsuite name="LoginModel_test" file="C:\wamp\www\ContactCI\application\tests\models\LoginModel_test.php" tests="1" assertions="2" failures="0" errors="0" time="0.042002">
+      <testcase name="test_get_permit" class="LoginModel_test" file="C:\wamp\www\ContactCI\application\tests\models\LoginModel_test.php" line="12" assertions="2" time="0.042002"/>
     </testsuite>
-    <testsuite name="SearchModel_test" file="C:\wamp\www\ContactCI\application\tests\models\SearchModel_test.php" tests="1" assertions="6" failures="0" errors="0" time="0.094006">
-      <testcase name="test_get_namelist" class="SearchModel_test" file="C:\wamp\www\ContactCI\application\tests\models\SearchModel_test.php" line="12" assertions="6" time="0.094006"/>
+    <testsuite name="SearchModel_test" file="C:\wamp\www\ContactCI\application\tests\models\SearchModel_test.php" tests="2" assertions="7" failures="0" errors="0" time="0.117007">
+      <testcase name="test_get_namelist" class="SearchModel_test" file="C:\wamp\www\ContactCI\application\tests\models\SearchModel_test.php" line="12" assertions="6" time="0.073004"/>
+      <testcase name="test_get_detail" class="SearchModel_test" file="C:\wamp\www\ContactCI\application\tests\models\SearchModel_test.php" line="36" assertions="1" time="0.044003"/>
     </testsuite>
   </testsuite>
 </testsuites>

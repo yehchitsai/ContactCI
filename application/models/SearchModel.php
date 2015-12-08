@@ -69,17 +69,17 @@ class SearchModel extends CI_Model {
 						)	
 			);
 			
-		$query = 'SELECT * FROM `studata` WHERE `stu_id` = "'.$_POST["stu_id"].'"';
+		$query = 'SELECT * FROM `studata` WHERE `stu_id` = "'.$stu_id.'"';
 		$result = $this->db->query($query);
 		$json["studata"]=array_values($result->unbuffered_row('array'));
 
-		$query = 'SELECT `email` FROM `email` WHERE `stu_id` = "'.$_POST["stu_id"].'"';
+		$query = 'SELECT `email` FROM `email` WHERE `stu_id` = "'.$stu_id.'"';
 		$result = $this->db->query($query);
 		while($row=$result->unbuffered_row('array')){
 			array_push($json['email'], array_values($row));
 		}
 							
-		$query = 'SELECT `uid` FROM `link` WHERE `stu_id` = "'.$_POST["stu_id"].'"';
+		$query = 'SELECT `uid` FROM `link` WHERE `stu_id` = "'.$stu_id.'"';
 		$result = $this->db->query($query);
 		$i=0;
 		while($row=$result->unbuffered_row('array')){

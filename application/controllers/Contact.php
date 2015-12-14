@@ -87,6 +87,33 @@ class Contact extends CI_Controller {
 		}
 	}
 	
+	public function web_login()
+	{
+		$this->cors_headers();
+		if ($this->facebook->is_authenticated())
+		{
+			$fb = $this->facebook->object();
+			$response = $fb->get('/261722443914328/?fields=members.limit(1000){id,name,picture}');
+			$graphObject = $response->getGraphObject();
+			if (!isset($graphObject['error']))
+			{
+				$data['graphObject'] = array();
+				$data['graphObject'] = $graphObject;
+				$this->UpdateModel->update_members($data);
+			}
+		}
+		else
+		{
+			$this->load->view('web');
+		}
+	}
+	
+	public function web_logout()
+	{
+		$this->facebook->destroy_session();
+		redirect('Contact/web_login', redirect);
+	}
+	
 	/*
 	public function monitor()
 	{
